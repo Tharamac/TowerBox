@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:tower_box_test/widget/destory_box_btn.dart';
 import 'package:tower_box_test/widget/towerbox.dart';
+
+const colors = [Color.fromARGB(255, 216, 154, 174), Colors.blue];
 
 class VerticalTowerView extends StatelessWidget {
   const VerticalTowerView({Key? key}) : super(key: key);
@@ -22,10 +25,16 @@ class VerticalTowerView extends StatelessWidget {
                         : const SizedBox(height: 4)),
               )),
           Expanded(
-              flex: 16,
-              child: Container(
-                color: Colors.white,
-              )),
+            flex: 16,
+            child: Container(
+              color: Colors.white,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: colors
+                      .map((e) => Flexible(child: DestroyBoxButton(color: e)))
+                      .toList()),
+            ),
+          )
         ],
       ));
 }

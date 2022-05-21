@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tower_box_test/widget/destory_box_btn.dart';
 
 import '../widget/towerbox.dart';
+
+const colors = [Color.fromARGB(255, 216, 154, 174), Colors.blue];
 
 class HorizontalTowerView extends StatelessWidget {
   const HorizontalTowerView({Key? key}) : super(key: key);
@@ -13,6 +16,9 @@ class HorizontalTowerView extends StatelessWidget {
               flex: 16,
               child: Container(
                 color: Colors.white,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [DestroyBoxButton(color: colors[0])]),
               )),
           Expanded(
               flex: 64,
@@ -28,6 +34,9 @@ class HorizontalTowerView extends StatelessWidget {
               flex: 16,
               child: Container(
                 color: Colors.white,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [DestroyBoxButton(color: colors[1])]),
               )),
         ],
       ));

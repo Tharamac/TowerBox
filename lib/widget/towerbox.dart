@@ -6,10 +6,10 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 final _random = Random();
+const colors = [Color.fromARGB(255, 216, 154, 174), Colors.blue];
 
 class TowerBox extends StatelessWidget {
   const TowerBox({Key? key}) : super(key: key);
-  static const colors = [Color.fromARGB(255, 216, 154, 174), Colors.blue];
 
   @override
   Widget build(BuildContext context) {
