@@ -13,15 +13,17 @@ class TowerBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.3,
-      height: MediaQuery.of(context).size.width * 0.12,
-      alignment: Alignment.center,
-      decoration: ShapeDecoration(
-        color: colors[_random.nextInt(colors.length)],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-          side: const BorderSide(width: 0.7, color: Colors.black),
+    return FractionallySizedBox(
+      widthFactor: 0.3,
+      child: Container(
+        height: MediaQuery.of(context).size.width * 0.12,
+        alignment: Alignment.center,
+        decoration: ShapeDecoration(
+          color: colors[_random.nextInt(colors.length)],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            side: const BorderSide(width: 0.7, color: Colors.black),
+          ),
         ),
       ),
     );

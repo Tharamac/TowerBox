@@ -17,11 +17,11 @@ class VerticalTowerView extends StatelessWidget {
         children: [
           Expanded(
               flex: 80,
-              child: Container(
+              child: SizedBox(
                   width: double.infinity,
                   child: SingleChildScrollView(
                       reverse: true,
-                      // physics: const NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
