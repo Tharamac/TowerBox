@@ -14,3 +14,9 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+TODO
+- State Management : make a random same  sequence on both vertical and horizontal 
+- remove boxes with animation
+- 2 second indicator with: CircularProgressIndicator and stateful widget
+- current boxes indicator 

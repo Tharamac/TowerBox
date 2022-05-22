@@ -1,9 +1,17 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'pages/vertical_tower.dart';
 import 'pages/horizontal_tower.dart';
+import 'blocs/blocs_observer.dart';
+import 'blocs/colors_blocs.dart';
 
 void main() {
-  runApp(const MyApp());
+  BlocOverrides.runZoned(
+    () => runApp(const MyApp()),
+    blocObserver: AppBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,23 +20,29 @@ class MyApp extends StatelessWidget {
   // This widet is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Tower Box',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: const Color(0xFFD8D8D8),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<TowerColorsCubit>(
+            create: (BuildContext context) => TowerColorsCubit())
+      ],
+      child: MaterialApp(
+        title: 'Tower Box',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+          scaffoldBackgroundColor: const Color(0xFFD8D8D8),
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const MainPage(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: const MainPage(),
     );
   }
 }
