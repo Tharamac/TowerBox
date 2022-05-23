@@ -12,8 +12,8 @@ final colorsInit =
 class TowerColorsCubit extends Cubit<List<Color>> {
   TowerColorsCubit() : super(colorsInit);
 
-  void destroy() {
-    state.removeLast();
+  void destroyBox() {
+    state.removeAt(0);
     emit(state);
   }
 }

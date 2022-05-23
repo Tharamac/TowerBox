@@ -2,6 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tower_box_test/blocs/double_tap.dart';
+import 'package:tower_box_test/blocs/timer_bloc.dart';
+import 'package:tower_box_test/ticker.dart';
+import 'blocs/animated_state_cubit.dart';
 import 'pages/vertical_tower.dart';
 import 'pages/horizontal_tower.dart';
 import 'blocs/blocs_observer.dart';
@@ -23,7 +27,13 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<TowerColorsCubit>(
-            create: (BuildContext context) => TowerColorsCubit())
+            create: (BuildContext context) => TowerColorsCubit()),
+        BlocProvider<AnimatedListStateCubit>(
+            create: (BuildContext context) => AnimatedListStateCubit()),
+        BlocProvider<DoubleHoldCubit>(
+            create: (BuildContext context) => DoubleHoldCubit()),
+        BlocProvider<TimerBloc>(
+            create: (BuildContext context) => TimerBloc(ticker: Ticker())),
       ],
       child: MaterialApp(
         title: 'Tower Box',
