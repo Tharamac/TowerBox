@@ -109,7 +109,8 @@ class _DestroyBoxButtonState extends State<DestroyBoxButton>
                                       builder: (BuildContext context) =>
                                           AlertDialog(
                                         title: const Text('Ended'),
-                                        content: Text('${timerState.duration}'),
+                                        content: Text(
+                                            'Elasped time: ${timerState.duration}s'),
                                       ),
                                     );
                                     return;
